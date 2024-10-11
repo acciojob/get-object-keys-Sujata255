@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Object Keys Example</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <h1>Get Object Keys Example</h1>
+    
+    <!-- Button to get keys from the student object -->
+    <button id="getKeysButton">Get Student Keys</button>
+    
+    <!-- Container to display the keys -->
+    <div id="output"></div>
 
+    <!-- Script for object keys functionality -->
+    <script type="text/javascript">
+        // Step 1: Create the student object
+        const student = {
+            name: 'John Doe',
+            age: 20,
+            grade: 'A'
+        };
+
+        // Step 2: Add getKeys method to the Object prototype
+        Object.prototype.getKeys = function() {
+            return Object.keys(this);
+        };
+
+        // Step 3: Add an event listener to the button to display the object keys
+        document.getElementById('getKeysButton').addEventListener('click', function() {
+            const keys = student.getKeys();  // Call getKeys on the student object
+            document.getElementById('output').innerHTML = 'Student Keys: ' + keys.join(', ');
+        });
+    </script>
 </body>
 
 </html>
